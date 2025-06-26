@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BMI Dashboard</title>
+  <style>
+    body {
+      background: linear-gradient(145deg, #3b8dff, #1761c7);
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+    }
+
+    .container {
+      margin-top: 80px;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      width: 80%;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+
+    table {
+      width: 100%;
+      margin-top: 20px;
+      border-collapse: collapse;
+      background-color: rgba(255, 255, 255, 0.15);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #ffffff44;
+    }
+
+    th {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    td {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .buttons {
+      margin-top: 20px;
+    }
+
+    .buttons a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #2d78f4;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      margin: 0 10px;
+      transition: background 0.3s ease;
+    }
+
+    .buttons a:hover {
+      background-color: #185bcc;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>BMI Dashboard</h1>
+
+    <table>
+      <tr>
+        <th>User</th>
+        <th>Weight (kg)</th>
+        <th>Height (m)</th>
+        <th>BMI</th>
+      </tr>
+      {% for user in users %}
+      <tr>
+        <td>{{ user.id }}</td>
+        <td>{{ user.weight }}</td>
+        <td>{{ user.height }}</td>
+        <td>{{ user.bmi }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+
+    <div class="buttons">
+      <a href="/user/{{ session['user_id'] }}">Edit My Info</a>
+      <a href="/logout">Logout</a>
+    </div>
+  </div>
+</body>
+</html>
