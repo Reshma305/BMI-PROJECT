@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Enter BMI Info | BMI Tracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #3a8dde, #0057b7);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+    }
+
+    .form-box {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 2.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+      width: 100%;
+      max-width: 420px;
+    }
+
+    .form-box h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-weight: 600;
+      color: #e0eaff;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: #d9e7ff;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1.5rem;
+      border: none;
+      border-radius: 0.5rem;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    input::placeholder {
+      color: #d0d0d0;
+    }
+
+    button {
+      width: 100%;
+      padding: 0.75rem;
+      background-color: #1c74d4;
+      border: none;
+      color: white;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #165cb3;
+    }
+
+    .bottom-links {
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+
+    .bottom-links a {
+      color: #d6e4ff;
+      text-decoration: none;
+      margin: 0 0.5rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-box">
+    <h2>Hello, {{ user_id }}</h2>
+    <form method="POST">
+      <label for="weight">Weight (kg)</label>
+      <input type="number" name="weight" step="0.1" required placeholder="e.g. 70.5">
+
+      <label for="height">Height (m)</label>
+      <input type="number" name="height" step="0.01" required placeholder="e.g. 1.75">
+
+      <button type="submit">Submit</button>
+    </form>
+    <div class="bottom-links">
+      <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+  </div>
+</body>
+</html>
