@@ -13,9 +13,6 @@ def load_data():
             return json.load(f)
     return {}
 '''
-import json
-import os
-
 def load_data():
     file_path = "users_data.json"
     if not os.path.exists(file_path) or os.path.getsize(file_path) == 0:
